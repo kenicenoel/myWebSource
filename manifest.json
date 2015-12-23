@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Websource Go",
+  "description": "Fast access to your Web Source account",
+  "version": "1.0.1",
+  "author": "Kenice Noel",
+  "incognito": "spanning",
+
+  "browser_action":
+  {
+    "default_icon":"images/wsGoLogo64.png",
+    "default_popup": "start.html"
+
+  },
+
+
+  "icons":
+  {
+    "16": "images/wsGoLogo16.png",
+    "48": "images/wsGoLogo48.png",
+    "128": "images/wsGoLogo.png"
+  },
+
+  "permissions":
+              [
+                "storage",
+                "http://localhost/packagehero*"
+              ]
+
+}

@@ -5,36 +5,34 @@ $(function()
            using chrome.storage.sync.get versus chrome.storage.local.get
            will allow to saved webnumber to be synced across devices
            */
-           var webnumber;
-           chrome.storage.sync.get('number', function(storedWebNumbers)
+           var accountnumber;
+           chrome.storage.sync.get('accountnumber', function(data)
                  {
 
-                       if(storedWebNumbers)
+                       if(data)
                        {
-                           webnumber = storedWebNumbers.number;
-
-
+                           accountnumber = data.accountnumber;
 
                       }
 
 
-                      var url = "start.html";
-                      $("#title").html("Hello there, "+webnumber);
-                      chrome.browserAction.setBadgeText({'number': webnumber});
+
+                      $(".loggedInUser").html("<i class='fa fa-user fa-fw'></i> "+accountnumber);
+                      var packages = 0;
+                      var badgetext = packages.toString();
+                      chrome.browserAction.setBadgeText({text: badgetext});
 
                  });
 
-                 $("#cog").click(function() // when the search button is clicked
-                 {
-                   var url="options.html";
-                   window.location.replace(url);
-                 });
 
-                 $("#send").click(function() // when the search button is clicked
-                 {
-                   $("#options").html("<header> <i class='fa fa-send-o'></i> Pre-alert sent!</header><br><button id='continue'>Continue</button>");
 
-                 });
+          $('.log-out').click(function()
+            {
+                chrome.storage.sync.clear();
+                var url = "start.html";
+                window.location.replace(url);
+            }
+          );
 
 
 

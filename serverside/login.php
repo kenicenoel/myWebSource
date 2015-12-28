@@ -21,9 +21,6 @@ if ($connection->connect_error)
       $u = $_POST['login'];
       $p = md5($_POST['password']);
 
-      // $u = "Miami";
-      // $p = md5("test");
-
 
     // Check the username, password and select the information from the database
     $sql = "SELECT userId FROM users WHERE Username = ? AND Password = ?";

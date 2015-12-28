@@ -6,27 +6,25 @@ $(function()
            will allow to saved webnumber to be synced across devices
            */
            var webnumber;
+
+
+           // Check if the account info is stored and if it is, then redirect to the
            chrome.storage.sync.get('number', function(storedWebNumbers)
                  {
 
                        if(storedWebNumbers)
                        {
 
-                           var url = "start.html";
+                           var url = "menu.html";
                            window.location.replace(url);
 
                       }
-
-
-
 
                  });
 
 
                  /*
-
                    Functions to be run when the SAVE or CLEAR buttons are clicked
-
                  */
 
                  $("#save").click(function()

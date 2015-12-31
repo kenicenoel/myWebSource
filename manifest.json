@@ -24,7 +24,8 @@
   "permissions":
               [
                 "storage",
-                "http://localhost/packagehero*"
+                "http://kjnoel.5gbfree.com/serverside/",
+                "notifications"
               ]
 
 }

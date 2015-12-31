@@ -161,7 +161,7 @@ footer p
 
 
 
-/* Styles for the menu page goes here*/
+/* Styles for the menu and settings page goes here*/
 
   .section
   {
@@ -221,10 +221,45 @@ footer p
 
   div.bottom-content
   {
-    background-color: #5188BF;
+    background-color: #03A9F4;
     color: #fff;
     font-size: 12px;
     position: absolute;
     bottom: 20px;
     width: 100%;
+  }
+
+  a
+  {
+    margin: 20px 20px;
+    color: #9E9E9E;
+  }
+
+  i.fa-toggle-on
+  {
+    font-size: 16px;
+    color: rgb(99, 189, 12);
+  }
+
+  i.fa-toggle-off
+  {
+    font-size: 16px;
+    color: rgb(95, 97, 94);
+  }
+
+  a.notificationToggle
+  {
+    font-size: 18px;
+    text-decoration: none;
+    cursor: default;
+
+
+  }
+
+  .fa-toggle-on, .fa-toggle-off
+  {
+    float: right;
+    margin-right: 30px;
+    cursor: pointer;
+
   }

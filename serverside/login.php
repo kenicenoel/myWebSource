@@ -1,31 +1,17 @@
 <?php
-// Connect to the local mySQL server
-$host = "localhost";
-$user = "admin";
-$pass = "admin";
-$database = "websource_package_data";
-
-// Create connection
-$connection = new mysqli($host, $user, $pass, $database);
-
-// Check connection
-if ($connection->connect_error)
-{
-    die("Whoops! Could not connect to the Package Hero database. Here's the error -> " . $connection->connect_error);
-}
-
+  include_once ('config.php');
 
 
 
       // set the username and password from form values
-      $u = $_POST['login'];
-      $p = md5($_POST['password']);
+      $a = $_POST['accountnumber'];
+      $p = $_POST['password'];
 
 
     // Check the username, password and select the information from the database
-    $sql = "SELECT userId FROM users WHERE Username = ? AND Password = ?";
+    $sql = "SELECT id FROM Users WHERE accountnumber = ? AND password = ?";
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param('ss', $u, $p);
+    $stmt->bind_param('ss', $a, $p);
 
     //echo $sql;
     $stmt->execute();

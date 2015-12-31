@@ -17,7 +17,7 @@ $(function()
 
 
 
-                      $(".loggedInUser").html("<i class='fa fa-user fa-fw'></i> "+accountnumber);
+                      $(".loggedInUser").html(accountnumber);
                       var packages = 0;
                       var badgetext = packages.toString();
                       chrome.browserAction.setBadgeText({text: badgetext});

@@ -10,12 +10,14 @@ $(document).ready(function()
       // Check if the account info is stored and if it is, then redirect to the menu page
       chrome.storage.sync.get(null, function(data)
             {
-                  console.log(data);
+
                   if(data.accountnumber && data.password)
                   {
-                      console.log(data.accountnumber+" and "+data.password);
+
                       var url = "menu.html";
                       window.location.replace(url);
+                      showNotification();
+
 
                  }
 
@@ -32,9 +34,9 @@ $(document).ready(function()
       // Use Ajax to submit form data
                 $.ajax(
                   {
-                    url: 'http://localhost/packagehero/login.php',
+                    url: 'http://kjnoel.5gbfree.com/serverside/login.php',
                     type: 'POST',
-                    data: 'login='+accountnumber+'&password='+password,
+                    data: 'accountnumber='+accountnumber+'&password='+password,
                     success: function(response)
                     {
 
@@ -49,6 +51,7 @@ $(document).ready(function()
                         chrome.storage.sync.set({'password': password});
                         var url = "menu.html";
                         window.location.replace(url);
+                        showNotification();
 
                       }
 
@@ -71,11 +74,34 @@ $(document).ready(function()
 
 
 
-
-
-
-
-
-
-
 });
+
+
+function showNotification()
+{
+
+  // setup the notification object
+   var options =
+   {
+     type: "basic",
+     title: "You are now logged in,",
+     message: "You have been logged in and will receive notifications like this one from time to time about new packages",
+     iconUrl: "images/icon128.png"
+   }
+
+
+   // Check to see if a notification exits
+   chrome.notifications.getAll(function (alerts)
+   {
+     var id="info";
+     for(id in alerts)
+     {
+       // Clear notification if it already exists
+       chrome.notifications.clear(id, function () {});
+     }
+   });
+
+   // create a notification
+   chrome.notifications.create('info', options, function () {} );
+
+}

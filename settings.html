@@ -19,9 +19,17 @@
 
             <p class="errorMessage"></p>
             <div id="options">
-              <a class="notificationToggle" href="#">Notifications</a><i class="fa fa-toggle-on fa-fw"></i>
+              <span class="switch"><a class="notificationToggle" href="#">Notifications</a><p class="toggleOff">off</p><i class="fa fa-toggle-on"></i><p class="toggleOn">on</p></span>
+              <label class="syncInterval" for="syncInterval">Update every</label>
+              <select name="syncInterval">
+                <option default value="5hours">5 hours</option>
+                <option default value="10hours">10 hours</option>
+                <option default value="12hours">12 hours</option>
+                <option default value="day">1 Day</option>
+                <option default value="manually">Manually</option>
+              </select>
 
-            <button class="save">finish</button>
+              <button class="save">done</button>
 
 
              </div>
@@ -36,6 +44,7 @@
 
 
   <script src="scripts/jquery.js"></script>
+  <script src="scripts/settings.js"></script>
 
   </body>
 
